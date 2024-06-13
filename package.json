@@ -1,9 +1,10 @@
 {
   "name": "@audc/retry-axios",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "description": "Retry HTTP requests with Axios.",
-  "exports": "./build/src/index.js",
-  "type": "module",
+  "type": "commonjs",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
   "types": "./build/src/index.d.ts",
   "engines": {
     "node": ">=18"
