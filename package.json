@@ -1,6 +1,6 @@
 {
-  "name": "retry-axios",
-  "version": "0.0.0",
+  "name": "@audc/retry-axios",
+  "version": "3.2.0",
   "description": "Retry HTTP requests with Axios.",
   "exports": "./build/src/index.js",
   "type": "module",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/JustinBeckwith/retry-axios.git"
+    "url": "https://github.com/audiocodes/retry-axios"
   },
   "scripts": {
     "lint": "xo --prettier",
