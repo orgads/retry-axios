@@ -1,8 +1,8 @@
-import assert from 'assert';
-import process from 'process';
-import axios, {AxiosError, AxiosRequestConfig} from 'axios';
+import assert from 'node:assert';
+import process from 'node:process';
+import axios, {type AxiosError, type AxiosRequestConfig} from 'axios';
 import nock from 'nock';
-import sinon from 'sinon';
+import * as sinon from 'sinon';
 import {describe, it, afterEach} from 'mocha';
 import * as rax from '../src/index.js';
 import {type RaxConfig} from '../src/index.js';
