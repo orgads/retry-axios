@@ -3,12 +3,11 @@
     "strict": true,
     "declaration": true,
     "sourceMap": true,
-    "target": "ES2022",
+    "target": "ES2023",
     "rootDir": ".",
     "outDir": "build",
-    "moduleResolution": "node",
-    "module": "CommonJS",
-    "esModuleInterop": true
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext"
   },
   "include": [
     "src/*.ts",
