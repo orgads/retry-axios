@@ -1,6 +1,6 @@
 {
   "name": "@audc/retry-axios",
-  "version": "3.2.3",
+  "version": "3.2.4",
   "description": "Retry HTTP requests with Axios.",
   "type": "commonjs",
   "source": "src/index.ts",
@@ -14,8 +14,8 @@
     "url": "https://github.com/audiocodes/retry-axios"
   },
   "scripts": {
-    "lint": "xo --prettier",
-    "fix": "xo --prettier --fix",
+    "fix": "biome check --write .",
+    "lint": "biome check .",
     "compile": "tsc -p .",
     "test": "c8 mocha build/test",
     "pretest": "npm run compile",
@@ -33,6 +33,7 @@
     "axios": "*"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
     "@types/mocha": "^10.0.6",
     "@types/node": "^20.14.2",
     "@types/sinon": "^17.0.3",
@@ -42,9 +43,8 @@
     "mocha": "^10.4.0",
     "nock": "^13.5.4",
     "semantic-release": "^24.0.0",
-    "sinon": "^18.0.0",
-    "typescript": "~5.4.5",
-    "xo": "^0.58.0"
+    "sinon": "^19.0.0",
+    "typescript": "~5.6.0"
   },
   "files": [
     "build/src"
@@ -54,11 +54,5 @@
       "build/test",
       "dist"
     ]
-  },
-  "xo": {
-    "rules": {
-      "@typescript-eslint/prefer-nullish-coalescing": "off",
-      "@typescript-eslint/consistent-type-definitions": "off"
-    }
   }
 }
