@@ -3,6 +3,7 @@ import process from 'node:process';
 import axios, { type AxiosError, type AxiosRequestConfig } from 'axios';
 import { afterEach, describe, it } from 'mocha';
 import nock from 'nock';
+import pDefer from 'p-defer';
 import * as sinon from 'sinon';
 import * as rax from '../src/index.js';
 import type { RaxConfig } from '../src/index.js';
@@ -641,7 +642,7 @@ describe('retry-axios', () => {
 			nock(url).get('/').reply(200, 'toast'),
 		];
 		interceptorId = rax.attach();
-		const { promise, resolve } = invertedPromise();
+		const { promise, resolve } = pDefer();
 		const clock = sinon.useFakeTimers({
 			shouldAdvanceTime: true, // Otherwise interferes with nock
 		});
@@ -671,7 +672,7 @@ describe('retry-axios', () => {
 			nock(url).get('/').reply(200, 'toast'),
 		];
 		interceptorId = rax.attach();
-		const { promise, resolve } = invertedPromise();
+		const { promise, resolve } = pDefer();
 		const clock = sinon.useFakeTimers({
 			shouldAdvanceTime: true,
 		});
@@ -721,7 +722,7 @@ describe('retry-axios', () => {
 			nock(url).get('/').reply(200, 'toast'),
 		];
 		interceptorId = rax.attach();
-		const { promise, resolve } = invertedPromise();
+		const { promise, resolve } = pDefer();
 		const clock = sinon.useFakeTimers({
 			shouldAdvanceTime: true, // Otherwise interferes with nock
 		});
@@ -743,13 +744,3 @@ describe('retry-axios', () => {
 		}
 	});
 });
-
-function invertedPromise() {
-	let resolve!: () => void;
-	let reject!: (error: Error) => void;
-	const promise = new Promise<void>((innerResolve, innerReject) => {
-		resolve = innerResolve;
-		reject = innerReject;
-	});
-	return { promise, resolve, reject };
-}
